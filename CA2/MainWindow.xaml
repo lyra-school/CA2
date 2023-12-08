@@ -23,7 +23,7 @@
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="title" Grid.Column="1" Grid.ColumnSpan="4" Margin="184,26,29,27" Width="NaN" Height="NaN" Text="Tiddlywinks World Cup" FontSize="36" RenderTransformOrigin="0.503,0.589"/>
-        <ListBox x:Name="teamList" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"/>
+        <ListBox x:Name="teamList" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" SelectionChanged="teamList_SelectionChanged"/>
         <ListBox x:Name="playerList" Grid.Column="3" Grid.Row="2" Grid.RowSpan="2"/>
         <TextBlock x:Name="teamTitle" Margin="37,18,106,9" Grid.Row="1" Text="Teams" FontSize="16" Grid.ColumnSpan="2"/>
         <TextBlock x:Name="playerTitle" Margin="0,18,118,1" Grid.Row="1" Text="Players" FontSize="16" Grid.Column="3"/>

@@ -36,11 +36,17 @@ namespace CA2
 
         public void UpdateRecord(char result)
         {
+            _name = _name.Substring(1);
             char validCase = char.ToUpper(result);
             if(validCase == 'W' || validCase == 'D' || validCase == 'L')
             {
                 _name += validCase;
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} - {ResultRecord} - ";
         }
     }
 }

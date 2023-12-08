@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,7 @@ namespace CA2
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GetData();
+            teamList.ItemsSource = _teams;
         }
 
         private void GetData()
@@ -73,6 +75,12 @@ namespace CA2
             t3.AddPlayer(p7);
             t3.AddPlayer(p8);
             t3.AddPlayer(p9);
+        }
+
+        private void teamList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Team t = (Team)teamList.SelectedItem;
+            playerList.ItemsSource = t.Players;
         }
     }
 }
