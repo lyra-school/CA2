@@ -23,6 +23,14 @@ namespace CA2
             set { _resultRecord = value; }
         }
 
+        public int ResultScore
+        {
+            get
+            {
+                return CalculateScore();
+            }
+        }
+
         public Player(string name, string resultRecord)
         {
             _name = name;
@@ -34,19 +42,37 @@ namespace CA2
 
         }
 
+        public override string ToString()
+        {
+            return $"{Name} - {ResultRecord} - {ResultScore}";
+        }
+
         public void UpdateRecord(char result)
         {
             _name = _name.Substring(1);
             char validCase = char.ToUpper(result);
-            if(validCase == 'W' || validCase == 'D' || validCase == 'L')
+            if (validCase == 'W' || validCase == 'D' || validCase == 'L')
             {
                 _name += validCase;
             }
         }
 
-        public override string ToString()
+        public int CalculateScore()
         {
-            return $"{Name} - {ResultRecord} - ";
+            int score = 0;
+            int count = _resultRecord.Length;
+            string valid = _resultRecord.Substring(count - 5, 5);
+            foreach(char c in valid)
+            {
+                if(c == 'W')
+                {
+                    score += 3;
+                } else if(c == 'D')
+                {
+                    score += 1;
+                }
+            }
+            return score;
         }
     }
 }
