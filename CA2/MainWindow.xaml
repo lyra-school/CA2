@@ -41,9 +41,9 @@
             <Image x:Name="star3" Source="Images/staroutline.png" Grid.Column="2"/>
         </Grid>
         <StackPanel Grid.Column="5" Grid.Row="3" Grid.RowSpan="2" Margin="0,67,0,0" HorizontalAlignment="Left">
-            <Button x:Name="win" Content="Win" Height="20" Width="75" Margin="5"/>
-            <Button x:Name="loss" Content="Loss" Height="20" Width="75" Margin="5"/>
-            <Button x:Name="draw" Content="Draw" Height="20" Width="75" Margin="5"/>
+            <Button x:Name="win" Content="Win" Height="20" Width="75" Margin="5" Click="win_Click"/>
+            <Button x:Name="loss" Content="Loss" Height="20" Width="75" Margin="5" Click="loss_Click"/>
+            <Button x:Name="draw" Content="Draw" Height="20" Width="75" Margin="5" Click="draw_Click"/>
         </StackPanel>
     </Grid>
 </Window>

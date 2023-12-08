@@ -82,5 +82,50 @@ namespace CA2
             Team t = (Team)teamList.SelectedItem;
             playerList.ItemsSource = t.Players;
         }
+
+        private void win_Click(object sender, RoutedEventArgs e)
+        {
+            if(playerList.SelectedItem == null)
+            {
+                return;
+            }
+
+            Player pl = (Player)playerList.SelectedItem;
+            pl.UpdateRecord('W');
+            
+            Team t = (Team)teamList.SelectedItem;
+            playerList.ItemsSource = null;
+            playerList.ItemsSource = t.Players;
+        }
+
+        private void loss_Click(object sender, RoutedEventArgs e)
+        {
+            if (playerList.SelectedItem == null)
+            {
+                return;
+            }
+
+            Player pl = (Player)playerList.SelectedItem;
+            pl.UpdateRecord('L');
+
+            Team t = (Team)teamList.SelectedItem;
+            playerList.ItemsSource = null;
+            playerList.ItemsSource = t.Players;
+        }
+
+        private void draw_Click(object sender, RoutedEventArgs e)
+        {
+            if (playerList.SelectedItem == null)
+            {
+                return;
+            }
+
+            Player pl = (Player)playerList.SelectedItem;
+            pl.UpdateRecord('D');
+
+            Team t = (Team)teamList.SelectedItem;
+            playerList.ItemsSource = null;
+            playerList.ItemsSource = t.Players;
+        }
     }
 }
