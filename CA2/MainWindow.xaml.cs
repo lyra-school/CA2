@@ -26,6 +26,7 @@ namespace CA2
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Team> _teams = new List<Team>();
         public MainWindow()
         {
             InitializeComponent();
@@ -33,7 +34,45 @@ namespace CA2
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            GetData();
+        }
+
+        private void GetData()
+        {
+            Team t1 = new Team() { Name = "France" };
+            Team t2 = new Team() { Name = "Italy" };
+            Team t3 = new Team() { Name = "Spain" };
+
+            _teams.Add(t1);
+            _teams.Add(t2);
+            _teams.Add(t3);
+
+            //French players
+            Player p1 = new Player() { Name = "Marie", ResultRecord = "WWDDL" };
+            Player p2 = new Player() { Name = "Claude", ResultRecord = "DDDLW" };
+            Player p3 = new Player() { Name = "Antoine", ResultRecord = "LWDLW" };
+
+            t1.AddPlayer(p1);
+            t1.AddPlayer(p2);
+            t1.AddPlayer(p3);
+
+            //Italian players
+            Player p4 = new Player() { Name = "Marco", ResultRecord = "WWDLL" };
+            Player p5 = new Player() { Name = "Giovanni", ResultRecord = "LLLLD" };
+            Player p6 = new Player() { Name = "Valentina", ResultRecord = "DLWWW" };
+
+            t2.AddPlayer(p4);
+            t2.AddPlayer(p5);
+            t2.AddPlayer(p6);
+
+            //Spanish players
+            Player p7 = new Player() { Name = "Maria", ResultRecord = "WWWWW" };
+            Player p8 = new Player() { Name = "Jose", ResultRecord = "LLLLL" };
+            Player p9 = new Player() { Name = "Pablo", ResultRecord = "DDDDD" };
+
+            t3.AddPlayer(p7);
+            t3.AddPlayer(p8);
+            t3.AddPlayer(p9);
         }
     }
 }
