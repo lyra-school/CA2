@@ -23,6 +23,14 @@ namespace CA2
             get { return _players; }
         }
 
+        public int PlayerPoints
+        {
+            get
+            {
+                return PlayerPointCalc();
+            }
+        }
+
         public Team(string name)
         {
             _name = name;
@@ -38,9 +46,19 @@ namespace CA2
             _players.Add(player);
         }
 
+        private int PlayerPointCalc()
+        {
+            int sum = 0;
+            foreach (Player player in _players)
+            {
+                sum += player.ResultScore;
+            }
+            return sum;
+        }
+
         public override string ToString()
         {
-            return $"{Name} - ";
+            return $"{Name} - {PlayerPoints}";
         }
     }
 }

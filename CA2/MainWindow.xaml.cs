@@ -79,6 +79,10 @@ namespace CA2
 
         private void teamList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(teamList.SelectedItem == null)
+            {
+                return;
+            }
             Team t = (Team)teamList.SelectedItem;
             playerList.ItemsSource = t.Players;
         }
@@ -95,7 +99,9 @@ namespace CA2
             
             Team t = (Team)teamList.SelectedItem;
             playerList.ItemsSource = null;
-            playerList.ItemsSource = t.Players;
+
+            teamList.ItemsSource = null;
+            teamList.ItemsSource = _teams;
         }
 
         private void loss_Click(object sender, RoutedEventArgs e)
@@ -110,7 +116,9 @@ namespace CA2
 
             Team t = (Team)teamList.SelectedItem;
             playerList.ItemsSource = null;
-            playerList.ItemsSource = t.Players;
+
+            teamList.ItemsSource = null;
+            teamList.ItemsSource = _teams;
         }
 
         private void draw_Click(object sender, RoutedEventArgs e)
@@ -125,7 +133,9 @@ namespace CA2
 
             Team t = (Team)teamList.SelectedItem;
             playerList.ItemsSource = null;
-            playerList.ItemsSource = t.Players;
+
+            teamList.ItemsSource = null;
+            teamList.ItemsSource = _teams;
         }
     }
 }

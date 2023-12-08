@@ -57,7 +57,7 @@ namespace CA2
             }
         }
 
-        public int CalculateScore()
+        private int CalculateScore()
         {
             int score = 0;
             int count = _resultRecord.Length;
