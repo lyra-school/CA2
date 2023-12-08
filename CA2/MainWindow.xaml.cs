@@ -97,11 +97,12 @@ namespace CA2
             Player pl = (Player)playerList.SelectedItem;
             pl.UpdateRecord('W');
             
-            Team t = (Team)teamList.SelectedItem;
             playerList.ItemsSource = null;
 
             teamList.ItemsSource = null;
             teamList.ItemsSource = _teams;
+
+            _teams.Sort();
         }
 
         private void loss_Click(object sender, RoutedEventArgs e)
@@ -114,11 +115,12 @@ namespace CA2
             Player pl = (Player)playerList.SelectedItem;
             pl.UpdateRecord('L');
 
-            Team t = (Team)teamList.SelectedItem;
             playerList.ItemsSource = null;
 
             teamList.ItemsSource = null;
             teamList.ItemsSource = _teams;
+
+            _teams.Sort();
         }
 
         private void draw_Click(object sender, RoutedEventArgs e)
@@ -131,11 +133,12 @@ namespace CA2
             Player pl = (Player)playerList.SelectedItem;
             pl.UpdateRecord('D');
 
-            Team t = (Team)teamList.SelectedItem;
             playerList.ItemsSource = null;
 
             teamList.ItemsSource = null;
             teamList.ItemsSource = _teams;
+
+            _teams.Sort();
         }
     }
 }

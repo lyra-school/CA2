@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CA2
 {
-    public class Team
+    public class Team : IComparable<Team>
     {
         private string _name;
         private List<Player> _players = new List<Player>();
@@ -59,6 +59,21 @@ namespace CA2
         public override string ToString()
         {
             return $"{Name} - {PlayerPoints}";
+        }
+
+        public int CompareTo(Team other)
+        {
+            if (this.PlayerPoints > other.PlayerPoints)
+            {
+                return -1;
+            }
+            else if(this.PlayerPoints < other.PlayerPoints)
+            {
+                return 1;
+            } else
+            {
+                return this.Name.CompareTo(other.Name);
+            }
         }
     }
 }
