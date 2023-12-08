@@ -140,5 +140,42 @@ namespace CA2
 
             _teams.Sort();
         }
+
+        private void playerList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(playerList.SelectedItem == null)
+            {
+                ImageUpdater(0);
+                return;
+            }
+
+            Player pl = (Player)playerList.SelectedItem;
+            ImageUpdater(pl.ResultScore);
+        }
+
+        private void ImageUpdater(int score)
+        {
+            if(score == 0)
+            {
+                star1.Source = new BitmapImage(new Uri("Images/staroutline.png", UriKind.Relative));
+                star2.Source = new BitmapImage(new Uri("Images/staroutline.png", UriKind.Relative));
+                star3.Source = new BitmapImage(new Uri("Images/staroutline.png", UriKind.Relative));
+            } else if(score >= 1 && score <= 5)
+            {
+                star1.Source = new BitmapImage(new Uri("Images/starsolid.png", UriKind.Relative));
+                star2.Source = new BitmapImage(new Uri("Images/staroutline.png", UriKind.Relative));
+                star3.Source = new BitmapImage(new Uri("Images/staroutline.png", UriKind.Relative));
+            } else if(score >= 6 && score <= 10)
+            {
+                star1.Source = new BitmapImage(new Uri("Images/starsolid.png", UriKind.Relative));
+                star2.Source = new BitmapImage(new Uri("Images/starsolid.png", UriKind.Relative));
+                star3.Source = new BitmapImage(new Uri("Images/staroutline.png", UriKind.Relative));
+            } else
+            {
+                star1.Source = new BitmapImage(new Uri("Images/starsolid.png", UriKind.Relative));
+                star2.Source = new BitmapImage(new Uri("Images/starsolid.png", UriKind.Relative));
+                star3.Source = new BitmapImage(new Uri("Images/starsolid.png", UriKind.Relative));
+            }
+        }
     }
 }
